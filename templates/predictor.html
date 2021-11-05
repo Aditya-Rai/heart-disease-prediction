@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <link rel="stylesheet" href={{url_for('static',filename='predictor.css' )}}>
+    <title>Heart Disease Prediction</title>
+</head>
+
+<body>
+    <section id="prediction-form">
+        <form class="form" action="/prediction" method="POST">
+            <h1 class="my-3 text-center">Predictor</h1>
+            <div class="row">
+                <div class="col-md-6 my-2">
+                    <div class="md-form">
+                        <label for="age" class="age">Age</label>
+                        <input type="text" class="form-control" id="age" name="age" placeholder="Age Between 20 to 80"  required="required">
+                    </div>
+                </div>
+
+                <div class="col-md-6 my-2">
+                    <div class="md-form">
+                        <label for="resitngbp" class="resitngbp"> RestingBP</label>
+                        <input type="text" class="form-control" id="resitngbp" name="resitngbp" placeholder="RestingBP"  required="required">
+                    </div>
+                </div>
+
+                <div class="col-md-6 my-2">
+                    <div class="md-form">
+                        <label for="cholesterol" class="cholesterol">Cholesterol</label>
+                        <input type="text" class="form-control" id="cholesterol" name="cholesterol"
+                            placeholder="Cholesterol"  required="required">
+                    </div>
+                </div>
+
+                <div class="col-md-6 my-2">
+                    <div class="md-form">
+                        <label for="fastingBS" class="fastingBS">FastingBS</label>
+                        <input type="text" class="form-control" id="fastingBS" name="fastingBS" placeholder="FastingBS"  required="required">
+                    </div>
+                </div>
+
+                <div class="col-md-6 my-2">
+                    <div class="md-form">
+                        <label for="maxhr" class="maxhr">MaxHR</label>
+                        <input type="text" class="form-control" id="maxhr" name="maxhr" placeholder="MahHR" required="required">
+                    </div>
+                </div>
+
+                <div class="col-md-6 my-2">
+                    <div class="md-form">
+                        <label for="oldpeak" class="oldpeak">Oldpeak</label>
+                        <input type="text" class="form-control" id="oldpeak" name="oldpeak" placeholder="Oldpeak"  required="required">
+                    </div>
+                </div>
+
+                <div class="col-md-6 my-2">
+                    <div class="md-form">
+                        <label for="Sex" class="Sex" name="Sex">Sex</label>
+                        <select class="Sex" id="Sex" name="Sex" aria-label="Sex"  required="required">
+                            <option selected>Select Sex</option>
+                            <option value=male>Male</option>
+                            <option value=female>Female</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="col-md-6 my-2">
+                    <div class="md-form">
+                        <label for="ChestPain" class="ChestPain" name="ChestPain">ChestPain</label>
+                        <select class="ChestPain" id="ChestPain" name="ChestPain" aria-label="ChestPain"  required="required">
+                            <option selected>Select Chestpain Type</option>
+                            <option value="ata">Type_ATA</option>
+                            <option value="ta">Type_TA</option>
+                            <option value="nap">Type_NAP</option>
+                            <option value="asy">Type_ASY</option>
+                        </select>
+                    </div>
+                </div>
+
+
+                <div class="col-md-6 my-2">
+                    <div class="md-form">
+                            <label for="RestingECG" class="RestingECG" name="RestingECG">RestingECG</label>
+                            <select class="RestingECG" id="RestingECG" name="RestingECG" aria-label="RestingECG"  required="required">
+                                <option selected>Select RestingECG</option>
+                                <option value="normal">Type_Normal</option>
+                                <option value="st">Type_ST</option>
+                                <option value="lvh">Type_LVH</option>
+                            </select>
+                    </div>
+                </div>
+
+                <div class="col-md-6 my-2">
+                    <div class="md-form">
+                        <label for="ST_Slope" class="ST_Slope" name="ST_Slope">ST_Slope</label>
+                        <select class="ST_Slope" id="ST_Slope" name="ST_Slope" aria-label="ST_Slope"  required="required">
+                            <option selected>Select ST_Slope</option>
+                            <option value="flat">Type_Flat</option>
+                            <option value="up">Type_UP</option>
+                            <option value="down">Type_Down</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="col-md-6 my-2">
+                    <div class="md-form">
+                        <label for="ExerciseAngina" class="ExerciseAngina" name="ExerciseAngina">ExerciseAngina</label>
+                        <select class="ExerciseAngina" id="ExerciseAngina" name="ExerciseAngina"
+                            aria-label="ExerciseAngina"  required="required">
+                            <option selected>ExerciseAngina</option>
+                            <option value="yes">Yes</option>
+                            <option value="no">No</option>
+                        </select>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-6 my-2 d-flex align-items-end justify-content-around">
+                <button type="submit" class="btn btn-info button"style="margin-left: 100%;" >Predict</button>
+            </div>
+        </form>
+    </section>
+    <div>
+        <h1>
+            <center> {{ x_value }} </center>
+        </h1>
+    </div>
+    <div>
+        <h1>
+            <center> {{ prediction_text }} </center>
+        </h1>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

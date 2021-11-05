@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heart Disease Prediction</title>
+</head>
+<body>
+    
+<h1>Heart Disease Prediction</h1>
+
+<form action="/prediction" method="POST">
+
+       <p>Enter Your age</p>
+       <input type="text" name="age" placeholder="Age">
+
+       <p>Sex</p>
+       <select name="Sex" id="">
+           <option value="male">Male</option>
+           <option value="female">Female</option>
+    </select>
+
+       <p>Enter Your RestingBP</p>
+       <input type="text" name="resitngbp" placeholder="RestingBP">
+
+        <p>Enter Your Cholesterol</p>
+        <input type="text" name = "cholesterol" placeholder="Cholesterol">
+
+        <p>Enter Your FastingBS</p>
+        <input type="text" name="fastingBS" placeholder="FastingBS">
+
+        <p>Enter Your MaxHR</p>
+        <input type="text" name="maxhr" placeholder="MaxHR">
+ 
+        <p>Enter Your Oldpeak</p>
+        <input type="text" name="oldpeak" placeholder="Oldpeak">
+ 
+        <p>ChestPain</p>
+        <select name="ChestPain" id="">
+            <option value="ata" >Type_ATA</option>
+            <option value="ta">Type_TA</option>
+            <option value="nap" >Type_NAP</option>
+            <option value="asy">Type_ASY</option>d
+     </select>       
+     
+     
+     <p>RestingECG</p>
+     <select name="RestingECG" id="">
+         <option value="normal" >Type_Normal</option>
+         <option value="st" >Type_ST</option>
+         <option value="lvh" >Type_LVH</option>
+  </select>
+
+     <p>ST_Slope</p>
+     <select name="ST_Slope" id="">
+         <option value="flat" >Type_Flat</option>
+         <option value="up" >Type_UP</option>
+         <option value="down" >Type_Down</option>
+  </select>
+
+     <p>ExerciseAngina</p>
+     <select name="ExerciseAngina" id="">
+         <option value="yes" >Yes</option>
+         <option value="no" >No</option>
+         
+  </select>
+<button id="sub" type="submit ">Calculate</button>
+
+</form>
+
+<br><br><h3>{{ x_value }}<h3>
+<br><br><h3>{{ prediction_text }}<h3>
+
+
+</body>
+</html>
